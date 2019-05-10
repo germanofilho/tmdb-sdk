@@ -16,6 +16,10 @@ class TMDbConfiguration{
         this.apiVersion = apiVersion
     }
 
+    fun getApiVersion(){
+        this.apiVersion
+    }
+
     fun getApiKey() = apiKey
 
 }

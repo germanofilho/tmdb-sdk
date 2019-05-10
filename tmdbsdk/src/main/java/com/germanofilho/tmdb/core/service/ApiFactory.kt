@@ -1,5 +1,6 @@
 package com.germanofilho.tmdb.core.service
 
+import com.germanofilho.tmdb.BuildConfig
 import com.germanofilho.tmdb.TMDb
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -27,9 +28,7 @@ object ApiFactory{
 
     fun retrofit() : Retrofit = Retrofit.Builder()
         .client(tmdbClient)
-        .baseUrl("https://api.themoviedb.org/3/")
+        .baseUrl(BuildConfig.BASE_API.plus(TMDb.instance.getConfiguration().getApiVersion()).plus("/"))
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-
-    val tmdbApi : TMDbEndPoint = retrofit().create(TMDbEndPoint::class.java)
 }

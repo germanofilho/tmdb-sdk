@@ -33,4 +33,25 @@ class TMDbRepository : ITMDbRespository {
             }
         })
     }
+
+
+//    override fun getMovieDetail(callback: CallbackBoundary<MovieResponse>) {
+//        service.getPopularMovie().enqueue(object : Callback<MovieResponse> {
+//            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
+//                if (response.isSuccessful) {
+//                    callback.success(response.body()!!)
+//                } else {
+//                    try {
+//                        callback.error(Throwable())
+//                    } catch (e: IOException) {
+//                        callback.error(e)
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+//                callback.error(t)
+//            }
+//        })
+//    }
 }
