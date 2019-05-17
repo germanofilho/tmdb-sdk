@@ -4,6 +4,7 @@ class TMDbConfiguration{
 
     private lateinit var apiKey : String
     private var apiVersion : Int = 3
+    private var debuggingMode : Boolean = false
 
     fun setApiKey(apiKey: String){
         this.apiKey = apiKey
@@ -16,10 +17,14 @@ class TMDbConfiguration{
         this.apiVersion = apiVersion
     }
 
-    fun getApiVersion(){
-        this.apiVersion
+    fun setDebbugingMode(debuggingMode: Boolean){
+        this.debuggingMode = debuggingMode
     }
 
-    fun getApiKey() = apiKey
+    fun debbugingModeEnabled() : Boolean = debuggingMode
+
+    fun getApiVersion() : String = this.apiVersion.toString()
+
+    fun getApiKey() : String = apiKey
 
 }

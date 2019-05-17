@@ -4,6 +4,7 @@ import com.germanofilho.tmdb.BuildConfig
 import com.germanofilho.tmdb.TMDb
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -24,6 +25,7 @@ object ApiFactory{
 
     private val tmdbClient = OkHttpClient().newBuilder()
         .addInterceptor(authInterceptor)
+        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
     fun retrofit() : Retrofit = Retrofit.Builder()
